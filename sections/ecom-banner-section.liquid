@@ -144,16 +144,16 @@
   .ecom-btn:hover::after {
     opacity: 1; /* Adds extra depth on hover */
   }
-    @media(min-width: {{ mobile_point }}) {
-      .ecom-hide--desk {
-        display: none;
-      }
+  @media(min-width: {{ mobile_point }}) {
+    .ecom-hide--desk {
+      display: none;
     }
-    @media(max-width: {{ mobile_point }}) {
-      .ecom-hide--mobile {
-        display: none;
-      }
+  }
+  @media(max-width: {{ mobile_point }}) {
+    .ecom-hide--mobile {
+      display: none;
     }
+  }
 {%- endstyle -%}
 
 <div class="ecom-section">
