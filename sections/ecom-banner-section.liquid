@@ -6,81 +6,106 @@
 %}
 
 {%- style -%}
-    .ecom-top-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 50px;
-      background: #F5F5F5;
-    }
-    .ecom-text {
-      margin: 0;
-      font-family: "Jost";
-      font-weight: normal;
-      font-size: 16px;
-      line-height: 13.42px;
-    }
-
-    .ecom-btn {
-    /* Base styles - same as above */
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
+  .ecom-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background: #F5F5F5;
+  }
+  .ecom-text {
+    margin: 0;
+    font-family: "Jost";
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 13.42px;
   }
 
+  .ecom-btn {
+    /* Base styles - unchanged */
+    font-family: 'Jost';
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 20px;
+    letter-spacing: 0px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 18px;
+    margin: 0;
+    padding: 12px 22px;
+    min-width: 207px;
+    border: none;
+    background: #FFF544;
+    cursor: pointer;
+    position: relative;
+
+    /* Important additions for proper text/icon color transition */
+    color: #000000; /* Ensure initial text color is set */
+    transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 1; /* Ensures text stays above the pseudo-element */
+  }
+
+  .ecom-btn .svg-wrapper {
+    width: 24px;
+    height: fit-content;
+    position: relative;
+    z-index: 2; /* Keep icon above the overlay */
+  }
+
+  .ecom-btn .svg-wrapper svg {
+    width: 100%;
+    height: fit-content;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Improved pseudo-element with better transition */
   .ecom-btn::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
+    width: 0;
     height: 100%;
     background: #000000;
-    z-index: -1;
+    opacity: 0;
 
-    /* Use custom properties for animation */
-    --width: 0%;
-    --opacity: 0;
+    /* Better transition with cubic-bezier for smooth left-to-right */
+    transition: width 0.5s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Custom ease-in-out */
 
-    width: var(--width);
-    opacity: var(--opacity);
-
-    /* Smooth transition for both properties */
-    transition:
-      width 0.6s cubic-bezier(0.65, 0, 0.35, 1),
-      opacity 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+    z-index: -1; /* Places it behind the text */
   }
 
-  /* Hover in - opacity reaches 1 at 50% width */
+  /* Hover states */
+  .ecom-btn:hover {
+    color: #ffffff; /* Text turns white on hover */
+  }
+
   .ecom-btn:hover::before {
-    --width: 100%;
-    --opacity: 1;
-
-    /* Custom timing function that accelerates opacity faster */
-    transition:
-      width 0.6s cubic-bezier(0.65, 0, 0.35, 1),
-      opacity 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) 0.1s;
+    width: 100%; /* Expands from left to right */
+    opacity: 1;
   }
 
-  /* Hover out - opacity fades in last 10% */
-  .ecom-btn:not(:hover)::before {
-    --width: 0%;
-    --opacity: 0;
-
-    /* Delay opacity fade until width is almost 0 */
-    transition:
-      width 0.6s cubic-bezier(0.65, 0, 0.35, 1),
-      opacity 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.45s;
+  /* Active state for better UX */
+  .ecom-btn:active {
+    transform: scale(0.98);
   }
-      @media(min-width: {{ mobile_point }}) {
-        .ecom-hide--desk {
-          display: none;
-        }
+
+  .ecom-btn:active::before {
+    background: #333333; /* Slightly lighter black for active state */
+  }
+
+    @media(min-width: {{ mobile_point }}) {
+      .ecom-hide--desk {
+        display: none;
       }
-      @media(max-width: {{ mobile_point }}) {
-        .ecom-hide--mobile {
-          display: none;
-        }
+    }
+    @media(max-width: {{ mobile_point }}) {
+      .ecom-hide--mobile {
+        display: none;
       }
+    }
 {%- endstyle -%}
 
 <div class="ecom-section">
