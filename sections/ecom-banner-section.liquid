@@ -56,7 +56,6 @@
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
-  /* Improved pseudo-element with better transition */
   .ecom-btn::before {
     content: '';
     position: absolute;
@@ -83,19 +82,19 @@
   }
 
   .ecom-btn:active::before {
-    background: #333333; /* Slightly lighter black for active state */
+    background: #333333;
   }
 
-    @media(min-width: {{ mobile_point }}) {
-      .ecom-hide--desk {
-        display: none;
-      }
+  @media(min-width: {{ mobile_point }}) {
+    .ecom-hide--desk {
+      display: none;
     }
-    @media(max-width: {{ mobile_point }}) {
-      .ecom-hide--mobile {
-        display: none;
-      }
+  }
+  @media(max-width: {{ mobile_point }}) {
+    .ecom-hide--mobile {
+      display: none;
     }
+  }
 {%- endstyle -%}
 
 <div class="ecom-section">
