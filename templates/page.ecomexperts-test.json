@@ -17,10 +17,16 @@
       "type": "ecom-banner-section",
       "name": "Ecom Banner Section",
       "settings": {}
+    },
+    "ecom_product_grid_pmhgKp": {
+      "type": "ecom-product-grid",
+      "name": "Ecom Product Grid",
+      "settings": {}
     }
   },
   "order": [
     "main",
-    "ecom_banner_section_ddUPVe"
+    "ecom_banner_section_ddUPVe",
+    "ecom_product_grid_pmhgKp"
   ]
 }
