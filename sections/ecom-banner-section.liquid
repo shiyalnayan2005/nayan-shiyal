@@ -6,154 +6,81 @@
 %}
 
 {%- style -%}
-  .ecom-top-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 50px;
-    background: #F5F5F5;
-  }
-  .ecom-text {
-    margin: 0;
-    font-family: "Jost";
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 13.42px;
-  }
+    .ecom-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 50px;
+      background: #F5F5F5;
+    }
+    .ecom-text {
+      margin: 0;
+      font-family: "Jost";
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 13.42px;
+    }
 
-  .ecom-btn {
-    /* Base styles */
-    font-family: 'Jost';
-    font-size: 16px;
-    font-weight: 400;
-    text-transform: uppercase;
-    line-height: 20px;
-    letter-spacing: 0px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 18px;
-    margin: 0;
-    padding: 12px 22px;
-    min-width: 207px;
-    border: none;
-    background: #FFF544;
-    cursor: pointer;
+    .ecom-btn {
+    /* Base styles - same as above */
     position: relative;
-
-    /* Text color transition */
-    color: #000000;
-    transition: color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow: hidden;
     z-index: 1;
-    overflow: hidden; /* Ensures the pseudo-element stays within button bounds */
   }
 
-  .ecom-btn .svg-wrapper {
-    width: 24px;
-    height: fit-content;
-    position: relative;
-    z-index: 2;
-  }
-
-  .ecom-btn .svg-wrapper svg {
-    width: 100%;
-    height: fit-content;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-
-  /* Improved pseudo-element with width AND opacity transition */
   .ecom-btn::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 0;
     height: 100%;
     background: #000000;
-
-    /* Opacity control - starts invisible */
-    opacity: 0;
-
-    /* Smooth transitions for both width and opacity */
-    transition:
-      width 0.5s cubic-bezier(0.65, 0, 0.35, 1),
-      opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
     z-index: -1;
-  }
 
-  /* Hover state with combined effects */
-  .ecom-btn:hover {
-    color: #ffffff;
-  }
+    /* Use custom properties for animation */
+    --width: 0%;
+    --opacity: 0;
 
-  .ecom-btn:hover::before {
-    width: 100%;
-    opacity: 1; /* Fades in as width expands */
-  }
+    width: var(--width);
+    opacity: var(--opacity);
 
-  .ecom-btn:hover .svg-wrapper svg {
-    color: #ffffff; /* If using currentColor */
-    fill: #ffffff; /* If using fill directly */
-  }
-
-  /* Alternative: Opacity only (no width transition) */
-  .ecom-btn.alt-style::before {
-    width: 100%; /* Full width from start */
-    opacity: 0; /* Hidden initially */
-    transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-
-  .ecom-btn.alt-style:hover::before {
-    opacity: 1; /* Just fades in */
-  }
-
-  /* Alternative: Width with delayed opacity */
-  .ecom-btn.delayed-style::before {
-    width: 0;
-    opacity: 0;
+    /* Smooth transition for both properties */
     transition:
-      width 0.5s cubic-bezier(0.65, 0, 0.35, 1),
-      opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s; /* Delayed start */
+      width 0.6s cubic-bezier(0.65, 0, 0.35, 1),
+      opacity 0.6s cubic-bezier(0.65, 0, 0.35, 1);
   }
 
-  /* Different opacity levels for subtle effects */
-  .ecom-btn.subtle::before {
-    background: #000000;
-    opacity: 0;
+  /* Hover in - opacity reaches 1 at 50% width */
+  .ecom-btn:hover::before {
+    --width: 100%;
+    --opacity: 1;
+
+    /* Custom timing function that accelerates opacity faster */
+    transition:
+      width 0.6s cubic-bezier(0.65, 0, 0.35, 1),
+      opacity 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) 0.1s;
   }
 
-  .ecom-btn.subtle:hover::before {
-    opacity: 0.8; /* Semi-transparent black instead of solid */
-  }
+  /* Hover out - opacity fades in last 10% */
+  .ecom-btn:not(:hover)::before {
+    --width: 0%;
+    --opacity: 0;
 
-  /* Multiple overlay options */
-  .ecom-btn::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.05); /* Very subtle dark overlay */
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -2;
+    /* Delay opacity fade until width is almost 0 */
+    transition:
+      width 0.6s cubic-bezier(0.65, 0, 0.35, 1),
+      opacity 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.45s;
   }
-
-  .ecom-btn:hover::after {
-    opacity: 1; /* Adds extra depth on hover */
-  }
-  @media(min-width: {{ mobile_point }}) {
-    .ecom-hide--desk {
-      display: none;
-    }
-  }
-  @media(max-width: {{ mobile_point }}) {
-    .ecom-hide--mobile {
-      display: none;
-    }
-  }
+      @media(min-width: {{ mobile_point }}) {
+        .ecom-hide--desk {
+          display: none;
+        }
+      }
+      @media(max-width: {{ mobile_point }}) {
+        .ecom-hide--mobile {
+          display: none;
+        }
+      }
 {%- endstyle -%}
 
 <div class="ecom-section">
