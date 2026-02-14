@@ -40,18 +40,14 @@
     background: #FFF544;
     cursor: pointer;
     position: relative;
-
-    /* Important additions for proper text/icon color transition */
-    color: #000000; /* Ensure initial text color is set */
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    z-index: 1; /* Ensures text stays above the pseudo-element */
+    z-index: 1;
   }
 
   .ecom-btn .svg-wrapper {
     width: 24px;
     height: fit-content;
     position: relative;
-    /* z-index: 2; Keep icon above the overlay */
   }
 
   .ecom-btn .svg-wrapper svg {
@@ -70,25 +66,18 @@
     height: 100%;
     background: #000000;
     opacity: 0;
-
-    /* Better transition with cubic-bezier for smooth left-to-right */
-    /* transition: width 0.4s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); Custom ease-in-out */
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Custom ease-in-out */
-
-    z-index: -1; /* Places it behind the text */
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: -1;
   }
-
-  /* Hover states */
   .ecom-btn:hover {
-    color: #ffffff; /* Text turns white on hover */
+    color: #ffffff;
   }
 
   .ecom-btn:hover::before {
-    width: 100%; /* Expands from left to right */
+    width: 100%;
     opacity: 1;
   }
 
-  /* Active state for better UX */
   .ecom-btn:active {
     transform: scale(0.98);
   }
