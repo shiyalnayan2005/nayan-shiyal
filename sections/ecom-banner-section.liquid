@@ -38,6 +38,7 @@
     border: none;
     background: #FFF544;
     cursor: pointer;
+    position: relative;
   }
   .ecom-btn .svg-wrapper {
     width: 24px;
@@ -46,6 +47,20 @@
   .ecom-btn .svg-wrapper svg {
     width: 100%;
     height: fit-content;
+  }
+
+  .ecom-btn::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 0px;
+    height: 100%;
+    background: #000;
+    overflow: hidden;
+    transition: width 0.3s ease-in;
+  }
+  .ecom-btn:hover::after {
+    width: 100%;
   }
 
   @media(min-width: {{ mobile_point }}) {
