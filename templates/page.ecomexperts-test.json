@@ -6,11 +6,21 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */ {
+ */
+{
   "sections": {
     "main": {
-      "type": "ecom-main-page"
+      "type": "ecom-main-page",
+      "settings": {}
+    },
+    "ecom_banner_section_ddUPVe": {
+      "type": "ecom-banner-section",
+      "name": "Ecom Banner Section",
+      "settings": {}
     }
   },
-  "order": ["main"]
+  "order": [
+    "main",
+    "ecom_banner_section_ddUPVe"
+  ]
 }
