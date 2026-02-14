@@ -15,6 +15,21 @@
     },
     "ecom_banner_section_ddUPVe": {
       "type": "ecom-banner-section",
+      "blocks": {
+        "top_row_GVmGLf": {
+          "type": "top_row",
+          "settings": {
+            "img": "shopify://shop_images/logo_main.png",
+            "img_width": 151,
+            "text": "Find the ideal gift for your loved ones.",
+            "btn_label": "choose gift",
+            "btn_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "top_row_GVmGLf"
+      ],
       "name": "Ecom Banner Section",
       "settings": {}
     },
