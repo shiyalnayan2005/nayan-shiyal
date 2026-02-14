@@ -6,22 +6,23 @@
 %}
 
 {%- style -%}
-  .ecom-top-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 50px;
-    background: #F5F5F5;
-  }
-  .ecom-text {
-    margin: 0;
-    font-family: "Jost";
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 13.42px;
-  }
+    .ecom-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 50px;
+      background: #F5F5F5;
+    }
+    .ecom-text {
+      margin: 0;
+      font-family: "Jost";
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 13.42px;
+    }
 
-  .ecom-btn {
+    .ecom-btn {
+    /* Base styles - unchanged */
     font-family: 'Jost';
     font-size: 16px;
     font-weight: 400;
@@ -39,43 +40,75 @@
     background: #FFF544;
     cursor: pointer;
     position: relative;
+
+    /* Important additions for proper text/icon color transition */
+    color: #000000; /* Ensure initial text color is set */
+    transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 1; /* Ensures text stays above the pseudo-element */
   }
+
   .ecom-btn .svg-wrapper {
     width: 24px;
     height: fit-content;
+    position: relative;
+    z-index: 2; /* Keep icon above the overlay */
   }
+
   .ecom-btn .svg-wrapper svg {
     width: 100%;
     height: fit-content;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
+  /* Improved pseudo-element with better transition */
   .ecom-btn::before {
     content: '';
     position: absolute;
+    top: 0;
     left: 0;
-    width: 0px;
+    width: 0;
     height: 100%;
-    background: #000;
-    overflow: hidden;
-    transition: width 0.3s ease-in;
-  }
-  .ecom-btn:hover {
-    color: #fff;
-  }
-  .ecom-btn:hover::before {
-    width: 100%;
+    background: #000000;
+
+    /* Better transition with cubic-bezier for smooth left-to-right */
+    transition: width 0.5s cubic-bezier(0.65, 0, 0.35, 1); /* Custom ease-in-out */
+
+    z-index: -1; /* Places it behind the text */
   }
 
-  @media(min-width: {{ mobile_point }}) {
-    .ecom-hide--desk {
-      display: none;
-    }
+  /* Hover states */
+  .ecom-btn:hover {
+    color: #ffffff; /* Text turns white on hover */
   }
-  @media(max-width: {{ mobile_point }}) {
-    .ecom-hide--mobile {
-      display: none;
-    }
+
+  .ecom-btn:hover::before {
+    width: 100%; /* Expands from left to right */
   }
+
+  .ecom-btn:hover .svg-wrapper svg {
+    fill: #ffffff; /* Changes icon color to white */
+    stroke: #ffffff; /* If your icon uses stroke */
+  }
+
+  /* Active state for better UX */
+  .ecom-btn:active {
+    transform: scale(0.98);
+  }
+
+  .ecom-btn:active::before {
+    background: #333333; /* Slightly lighter black for active state */
+  }
+
+    @media(min-width: {{ mobile_point }}) {
+      .ecom-hide--desk {
+        display: none;
+      }
+    }
+    @media(max-width: {{ mobile_point }}) {
+      .ecom-hide--mobile {
+        display: none;
+      }
+    }
 {%- endstyle -%}
 
 <div class="ecom-section">
