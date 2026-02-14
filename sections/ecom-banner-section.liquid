@@ -6,15 +6,17 @@
 %}
 
 {%- style -%}
-  {{ sec_sel }} .ecom-container {
+  .ecom-container {
     padding: 10px 50px;
   }
-  {{ sec_sel }} .ecom-top-row {
+  .ecom-top-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 50px;
+    background: #F5F5F5;
   }
-  {{ sec_sel }} .ecom-text {
+  .ecom-text {
     margin: 0;
     font-family: "Jost";
     font-weight: normal;
@@ -22,12 +24,12 @@
   }
 
   @media(min-width: {{ mobile_point }}) {
-    {{ sec_sel }} .ecom-hide--desk {
+    .ecom-hide--desk {
       display: none;
     }
   }
   @media(max-width: {{ mobile_point }}) {
-    {{ sec_sel }} .ecom-hide--mobile {
+    .ecom-hide--mobile {
       display: none;
     }
   }
