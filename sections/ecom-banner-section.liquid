@@ -74,7 +74,7 @@
             </div>
             {%- if blk_set.img != blank -%}
               <div class="logo-box">
-                <div class="img-wrapper" style="width={{ blk_set.img_width }}px">
+                <div class="img-wrapper" style="width:{{ blk_set.img_width }}px">
                   {{ blk_set.img | image_url: width: blk_set.img_width | image_tag: alt: blk_set.img.alt }}
                 </div>
               </div>
