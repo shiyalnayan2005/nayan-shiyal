@@ -242,6 +242,66 @@
   </div>
 </div>
 
+<script>
+  (function () {
+    const button = document.querySelector('.ecom-menu-toggler');
+    const drawer = document.querySelector('.ecom-menu-drawer');
+
+    if (!button || !drawer) return;
+
+    // Set ARIA attributes
+    button.setAttribute('aria-expanded', 'false');
+    button.setAttribute('aria-controls', 'ecom-menu-drawer');
+    button.setAttribute('id', 'ecom-menu-btn');
+
+    drawer.setAttribute('role', 'region');
+    drawer.setAttribute('aria-labelledby', 'ecom-menu-btn');
+    drawer.setAttribute('hidden', '');
+
+    // Click handler
+    button.addEventListener('click', function (e) {
+      e.preventDefault();
+      toggleAccordion();
+    });
+
+    // Keyboard handlers
+    button.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleAccordion();
+      }
+
+      if (e.key === 'ArrowDown' && button.getAttribute('aria-expanded') === 'true') {
+        e.preventDefault();
+        const focusableElements = drawer.querySelectorAll('button, a, [tabindex]:not([tabindex="-1"])');
+        if (focusableElements.length > 0) {
+          focusableElements[0].focus();
+        }
+      }
+    });
+
+    drawer.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !drawer.hasAttribute('hidden')) {
+        e.preventDefault();
+        toggleAccordion();
+        button.focus();
+      }
+    });
+
+    function toggleAccordion() {
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+      button.setAttribute('aria-expanded', !isExpanded);
+
+      if (!isExpanded) {
+        drawer.removeAttribute('hidden');
+      } else {
+        drawer.setAttribute('hidden', '');
+      }
+    }
+  })();
+</script>
+
 {% schema %}
 {
   "name": "Ecom Banner Section",
