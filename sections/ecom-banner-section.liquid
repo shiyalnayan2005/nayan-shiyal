@@ -267,7 +267,7 @@
     });
 
     drawer.addEventListener('transitionend', function (e) {
-      if(!button.getAttribute('aria-expanded') === 'false') {
+      if(button.getAttribute('aria-expanded') === 'false') {
         drawer.setAttribute("hidden", '');
       }
     });
