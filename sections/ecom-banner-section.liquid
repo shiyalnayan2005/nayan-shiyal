@@ -2,7 +2,7 @@
   # --------- For CSS ----------#
   # main section selector
   # assign sec_sel = '#shopify-section-' | append: section.id
-  assign mobile_point = '768px'
+  assign mobile_point = 768
 %}
 
 {%- style -%}
@@ -136,19 +136,19 @@
     padding: 25px 16px;
   }
 
-  @media(max-width: {{ mobile_point }}) {
+  @media(max-width: {{ mobile_point }}px) {
     .ecom-row-items {
       padding: 23px 16px;
       gap: 16px;
     }
   }
 
-  @media(min-width: {{ mobile_point }}) {
+  @media(min-width: {{ mobile_point | plus: 1 }}px) {
     .ecom-hide--desk {
       display: none;
     }
   }
-  @media(max-width: {{ mobile_point }}) {
+  @media(max-width: {{ mobile_point }}px) {
     .ecom-hide--mobile {
       display: none;
     }
@@ -294,6 +294,13 @@
       }
     });
     resizeObserver.observe(drawer.firstElementChild);
+
+    const mobileSize = parseInt({{ mobile_point }});
+    window.addEventListener("resize", ()=>{
+      if(window.innerWidth >= mobileSize && button.getAttribute('aria-expanded') === 'true') {
+        toggleAccordion();
+      }
+    });
 
     function toggleAccordion() {
       const isExpanded = button.getAttribute('aria-expanded') === 'true';
