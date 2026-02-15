@@ -31,10 +31,10 @@
   /* Start : Button Style */
 
   .ecom-btn {
-    --color-text: #000;
-    --color-bg: #FFF544;
-    --color-hover: #000;
-    --color-hover-text: #F5F5F5;
+    --ecom-color-text: #000;
+    --ecom-color-bg: #FFF544;
+    --ecom-color-hover: #000;
+    --ecom-color-hover-text: #F5F5F5;
 
     font-family: 'Jost';
     font-size: 16px;
@@ -52,7 +52,7 @@
     width: 100%;
     max-width: fit-content;
     border: none;
-    background: var(--color-bg);
+    background: var(--ecom-color-bg);
     cursor: pointer;
     position: relative;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -78,13 +78,13 @@
     left: 0;
     width: 0;
     height: 100%;
-    background: var(--color-hover);
+    background: var(--ecom-color-hover);
     opacity: 0;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     z-index: -1;
   }
   .ecom-btn:hover {
-    color: var(--color-hover-text);
+    color: var(--ecom-color-hover-text);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
@@ -99,10 +99,10 @@
   }
 
   .ecom-btn.ecom-btn-black {
-    --color-text: #F5F5F5;
-    --color-bg: #000000;
-    --color-hover: #FFF544;
-    --color-hover-text: #000000;
+    --ecom-color-text: #F5F5F5;
+    --ecom-color-bg: #000000;
+    --ecom-color-hover: #FFF544;
+    --ecom-color-hover-text: #000000;
   }
 
   /* End : Button Style */
