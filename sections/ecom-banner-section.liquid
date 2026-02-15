@@ -297,7 +297,7 @@
 
     const mobileSize = parseInt({{ mobile_point }});
     window.addEventListener("resize", ()=>{
-      if(window.innerWidth >= mobileSize && button.getAttribute('aria-expanded') === 'true') {
+      if(window.innerWidth > mobileSize && button.getAttribute('aria-expanded') === 'true') {
         toggleAccordion();
       }
     });
