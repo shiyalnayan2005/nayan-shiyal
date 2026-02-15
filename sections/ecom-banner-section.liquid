@@ -31,6 +31,11 @@
   /* Start : Button Style */
 
   .ecom-btn {
+    --color-text: #000;
+    --color-bg: #FFF544;
+    --color-hover: #000;
+    --color-hover-text: #F5F5F5;
+
     font-family: 'Jost';
     font-size: 16px;
     font-weight: 400;
@@ -47,7 +52,7 @@
     width: 100%;
     max-width: fit-content;
     border: none;
-    background: #FFF544;
+    background: var(--color-bg);
     cursor: pointer;
     position: relative;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -73,13 +78,13 @@
     left: 0;
     width: 0;
     height: 100%;
-    background: #000000;
+    background: var(--color-hover);
     opacity: 0;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     z-index: -1;
   }
   .ecom-btn:hover {
-    color: #F5F5F5;
+    color: var(--color-hover-text);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
@@ -90,10 +95,7 @@
 
   .ecom-btn:active {
     transform: scale(0.98);
-  }
-
-  .ecom-btn:active::before {
-    background: #333333;
+    opacity: 0.82;
   }
 
   .ecom-btn.ecom-btn-black {
