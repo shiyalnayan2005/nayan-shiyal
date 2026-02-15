@@ -295,7 +295,7 @@
     });
     resizeObserver.observe(drawer.firstElementChild);
 
-    const mobileSize = parseInt({{ mobile_point }});
+    const mobileSize = parseInt({{ mobile_point }}) + 1;
     window.addEventListener("resize", ()=>{
       if(window.innerWidth > mobileSize && button.getAttribute('aria-expanded') === 'true') {
         toggleAccordion();
