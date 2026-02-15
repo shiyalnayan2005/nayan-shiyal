@@ -196,7 +196,8 @@
               {%- if blk_set.img != blank -%}
                 <div class="logo-box">
                   <div class="img-wrapper" style="max-width:{{ blk_set.img_width }}px">
-                    {{ blk_set.img | image_url: width: blk_set.img_width | image_tag: alt: blk_set.img.alt }}
+                    {%- assign img_alt = blk_set.img_alt | default: blk_set.img.alt -%}
+                    {{ blk_set.img | image_url: width: blk_set.img_width | image_tag: alt: img_alt }}
                   </div>
                 </div>
               {%- endif -%}
