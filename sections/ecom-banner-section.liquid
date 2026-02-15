@@ -149,17 +149,30 @@
       {% case block.type %}
         {% when 'top_row' %}
           <div class="ecom-top-row" {{ block.shopify_attributes }}>
-            <div class="ecom-menu-container ecom-hide--desk">
-              <button class="ecom-menu-toggler">
+            <div class="ecom-accordion ecom-menu-container ecom-hide--desk">
+              <button
+                class="ecom-menu-toggler"
+                aria-expanded="false"
+                aria-controls="ecom-menu-drawer"
+                id="ecom-menu-btn"
+              >
                 <span class="svg-wrapper">
                   {{ 'icon-menu-new.svg' | inline_asset_content }}
                 </span>
               </button>
-              <div class="ecom-menu-drawer">
+
+              <div
+                class="ecom-menu-drawer"
+                id="ecom-menu-drawer"
+                role="region"
+                aria-labelledby="ecom-menu-btn"
+                hidden
+              >
                 <div class="ecom-menu-items">
                   {%- if blk_set.text != blank -%}
                     <p class="ecom-text">{{ blk_set.text }}</p>
                   {%- endif -%}
+
                   {%- if blk_set.btn_label != blank -%}
                     {%- if blk_set.btn_url != blank -%}
                       <a href="{{ blk_set.btn_url }}" class="ecom-btn">
@@ -180,6 +193,7 @@
                 </div>
               </div>
             </div>
+
             {%- if blk_set.img != blank -%}
               <div class="logo-box">
                 <div class="img-wrapper" style="width:{{ blk_set.img_width }}px">
