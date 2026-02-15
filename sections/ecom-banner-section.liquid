@@ -292,7 +292,7 @@
         drawer.style.height = `${entry.target.scrollHeight}px`;
       }
     });
-    resizeObserver.observer(drawer.firstElementChild);
+    resizeObserver.observe(drawer.firstElementChild);
 
     function toggleAccordion() {
       const isExpanded = button.getAttribute('aria-expanded') === 'true';
