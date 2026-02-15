@@ -85,6 +85,12 @@
     background: #333333;
   }
 
+  .empty-btn-space {
+    display: inline-block;
+    width: 18px;
+    height: 10px;
+    pointer-events: none;
+  }
   .ecom-menu-toggler {
     margin: 0;
     padding: 0;
@@ -232,7 +238,7 @@
                 </button>
               {%- endif -%}
             {%- endif -%}
-            <div class="ecom-hide--desk"></div>
+            <div class="ecom-hide--desk empty-btn-space"></div>
           </div>
 
         {% else %}
