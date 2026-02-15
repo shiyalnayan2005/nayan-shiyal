@@ -118,7 +118,7 @@
     top: 100%;
     left: 0;
     width: 100%;
-    max-height: 0;
+    height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease-in-out;
     background-color: #F2F2F2;
@@ -134,7 +134,7 @@
   }
 
   .ecom-menu-drawer:not([hidden]) {
-    max-height: fit-content;
+    /* max-height: fit-content; */
   }
 
   @media(max-width: {{ mobile_point }}) {
@@ -274,6 +274,12 @@
       }
     });
 
+    drawer.addEventListener('transitionend', function (e) {
+      if(!button.getAttribute('aria-expanded') === 'false') {
+        drawer.setAttribute("hidden", '');
+      }
+    });
+
     drawer.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && !drawer.hasAttribute('hidden')) {
         e.preventDefault();
@@ -290,7 +296,7 @@
       if (!isExpanded) {
         drawer.removeAttribute('hidden');
       } else {
-        drawer.setAttribute('hidden', '');
+        {% comment %} drawer.setAttribute('hidden', ''); {% endcomment %}
       }
     }
   })();
