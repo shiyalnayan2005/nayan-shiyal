@@ -16,6 +16,10 @@
     background: #F5F5F5;
     position: relative;
   }
+
+  .ecom-row-items .ecom-logo-box .img-wrapper {
+    display: flex;
+  }
   .ecom-text {
     margin: 0;
     font-family: "Jost";
@@ -194,7 +198,7 @@
               </button>
 
               {%- if blk_set.img != blank -%}
-                <div class="logo-box">
+                <div class="ecom-logo-box">
                   <div class="img-wrapper" style="max-width:{{ blk_set.img_width }}px">
                     {%- assign img_alt = blk_set.img_alt | default: blk_set.img.alt -%}
                     {{ blk_set.img | image_url: width: blk_set.img_width | image_tag: alt: img_alt }}
