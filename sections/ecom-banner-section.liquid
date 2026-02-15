@@ -255,15 +255,6 @@
 
     if (!button || !drawer) return;
 
-    // Set ARIA attributes
-    button.setAttribute('aria-expanded', 'false');
-    button.setAttribute('aria-controls', 'ecom-menu-drawer');
-    button.setAttribute('id', 'ecom-menu-btn');
-
-    drawer.setAttribute('role', 'region');
-    drawer.setAttribute('aria-labelledby', 'ecom-menu-btn');
-    drawer.setAttribute('hidden', '');
-
     // Click handler
     button.addEventListener('click', function (e) {
       e.preventDefault();
