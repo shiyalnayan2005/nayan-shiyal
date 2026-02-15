@@ -6,123 +6,123 @@
 %}
 
 {%- style -%}
-    .ecom-top-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 50px;
-      background: #F5F5F5;
-    }
-    .ecom-text {
-      margin: 0;
-      font-family: "Jost";
-      font-weight: normal;
-      font-size: 16px;
-      line-height: 13.42px;
-    }
+  .ecom-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background: #F5F5F5;
+  }
+  .ecom-text {
+    margin: 0;
+    font-family: "Jost";
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 13.42px;
+  }
 
-    .ecom-btn {
-      font-family: 'Jost';
-      font-size: 16px;
-      font-weight: 400;
-      text-transform: uppercase;
-      line-height: 20px;
-      letter-spacing: 0px;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 18px;
-      margin: 0;
-      padding: 12px 22px;
-      min-width: 207px;
-      border: none;
-      background: #FFF544;
-      cursor: pointer;
-      position: relative;
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      z-index: 1;
-    }
+  .ecom-btn {
+    font-family: 'Jost';
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 20px;
+    letter-spacing: 0px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 18px;
+    margin: 0;
+    padding: 12px 22px;
+    min-width: 207px;
+    border: none;
+    background: #FFF544;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 1;
+  }
 
-    .ecom-btn .svg-wrapper {
-      width: 24px;
-      height: fit-content;
-      position: relative;
-    }
+  .ecom-btn .svg-wrapper {
+    width: 24px;
+    height: fit-content;
+    position: relative;
+  }
 
-    .ecom-btn .svg-wrapper svg {
-      width: 100%;
-      height: fit-content;
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
+  .ecom-btn .svg-wrapper svg {
+    width: 100%;
+    height: fit-content;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
 
-    .ecom-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 100%;
-      background: #000000;
-      opacity: 0;
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      z-index: -1;
-    }
-    .ecom-btn:hover {
-      color: #ffffff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+  .ecom-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #000000;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: -1;
+  }
+  .ecom-btn:hover {
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
 
-    .ecom-btn:hover::before {
-      width: 100%;
-      opacity: 1;
-    }
+  .ecom-btn:hover::before {
+    width: 100%;
+    opacity: 1;
+  }
 
-    .ecom-btn:active {
-      transform: scale(0.98);
-    }
+  .ecom-btn:active {
+    transform: scale(0.98);
+  }
 
-    .ecom-btn:active::before {
-      background: #333333;
-    }
+  .ecom-btn:active::before {
+    background: #333333;
+  }
 
-    .ecom-menu-toggler {
-      margin: 0;
-      padding: 0;
-      border: none;
-      box-shadow: none;
-      outline: none;
-      background: transparent;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 18px;
-      height: 10px;
-      cursor: pointer;
-    }
-    .ecom-menu-toggler .svg-wrapper,
-    .ecom-menu-toggler .svg-wrapper svg {
-      display: flex;
-      width: 100%;
-      height: 100%;
-    }
+  .ecom-menu-toggler {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18px;
+    height: 10px;
+    cursor: pointer;
+  }
+  .ecom-menu-toggler .svg-wrapper,
+  .ecom-menu-toggler .svg-wrapper svg {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
 
-    .ecom-menu-drawer {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      height: fit-content;
-    }
-    .ecom-menu-drawer[hidden] {
-      display: none;
-    }
-    .ecom-menu-items {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    .ecom-menu-drawer {
+  .ecom-menu-drawer {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: fit-content;
+  }
+  .ecom-menu-drawer[hidden] {
+    display: none;
+  }
+  .ecom-menu-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .ecom-menu-drawer {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease-in-out;
@@ -131,25 +131,25 @@
   }
 
   .ecom-menu-drawer:not([hidden]) {
-    max-height: 500px; /* Adjust based on your content */
+    max-height: 500px;
   }
 
-    @media(max-width: {{ mobile_point }}) {
-      .ecom-top-row {
-        padding: 23px 16px;
-      }
+  @media(max-width: {{ mobile_point }}) {
+    .ecom-top-row {
+      padding: 23px 16px;
     }
+  }
 
-    @media(min-width: {{ mobile_point }}) {
-      .ecom-hide--desk {
-        display: none;
-      }
+  @media(min-width: {{ mobile_point }}) {
+    .ecom-hide--desk {
+      display: none;
     }
-    @media(max-width: {{ mobile_point }}) {
-      .ecom-hide--mobile {
-        display: none;
-      }
+  }
+  @media(max-width: {{ mobile_point }}) {
+    .ecom-hide--mobile {
+      display: none;
     }
+  }
 {%- endstyle -%}
 
 <div class="ecom-section">
