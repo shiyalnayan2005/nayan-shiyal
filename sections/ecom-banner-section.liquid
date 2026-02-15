@@ -295,8 +295,10 @@
 
       if (!isExpanded) {
         drawer.removeAttribute('hidden');
+        drawer.style.height = `${drawer.firstElementChild.scrollHeight}px`;
       } else {
         {% comment %} drawer.setAttribute('hidden', ''); {% endcomment %}
+        drawer.style.height = '0px';
       }
     }
   })();
