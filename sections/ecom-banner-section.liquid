@@ -119,11 +119,11 @@
     height: 100%;
   }
   .ecom-menu-toggler[aria-expanded='true'] .icon-close,
-  .ecom-menu-toggler:not([aria-expanded='true']) .icon-default {
+  .ecom-menu-toggler[aria-expanded='false'] .icon-default {
     display: flex;
   }
   .ecom-menu-toggler[aria-expanded='true'] .icon-default,
-  .ecom-menu-toggler:not([aria-expanded='true']) .icon-close{
+  .ecom-menu-toggler[aria-expanded='false'] .icon-close{
     display: none;
   }
 
