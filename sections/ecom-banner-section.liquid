@@ -159,9 +159,9 @@
       {% case block.type %}
         {% when 'top_row' %}
           <div class="ecom-top-row" {{ block.shopify_attributes }}>
-            <div class="ecom-menu-container ecom-hide--desk">
+            <div class="ecom-row-items">
               <button
-                class="ecom-menu-toggler"
+                class="ecom-menu-toggler ecom-hide--desk"
                 aria-expanded="false"
                 aria-controls="ecom-menu-drawer"
                 id="ecom-menu-btn"
@@ -171,67 +171,66 @@
                 </span>
               </button>
 
-              <div
-                class="ecom-menu-drawer"
-                id="ecom-menu-drawer"
-                role="region"
-                aria-labelledby="ecom-menu-btn"
-                hidden
-              >
-                <div class="ecom-menu-items">
-                  {%- if blk_set.text != blank -%}
-                    <p class="ecom-text">{{ blk_set.text }}</p>
-                  {%- endif -%}
-
-                  {%- if blk_set.btn_label != blank -%}
-                    {%- if blk_set.btn_url != blank -%}
-                      <a href="{{ blk_set.btn_url }}" class="ecom-btn">
-                        <span>{{ blk_set.btn_label }}</span>
-                        <span class="svg-wrapper">
-                          {{- 'icon-long-arrow-right.svg' | inline_asset_content -}}
-                        </span>
-                      </a>
-                    {%- else -%}
-                      <button type="button" class="ecom-btn">
-                        <span>{{ blk_set.btn_label }}</span>
-                        <span class="svg-wrapper">
-                          {{- 'icon-long-arrow-right.svg' | inline_asset_content -}}
-                        </span>
-                      </button>
-                    {%- endif -%}
-                  {%- endif -%}
+              {%- if blk_set.img != blank -%}
+                <div class="logo-box">
+                  <div class="img-wrapper" style="width:{{ blk_set.img_width }}px">
+                    {{ blk_set.img | image_url: width: blk_set.img_width | image_tag: alt: blk_set.img.alt }}
+                  </div>
                 </div>
+              {%- endif -%}
+              {%- if blk_set.text != blank -%}
+                <p class="ecom-text ecom-hide--mobile">{{ blk_set.text }}</p>
+              {%- endif -%}
+              {%- if blk_set.btn_label != blank -%}
+                {%- if blk_set.btn_url != blank -%}
+                  <a href="{{ blk_set.btn_url }}" class="ecom-btn ecom-hide--mobile">
+                    <span>{{ blk_set.btn_label }}</span>
+                    <span class="svg-wrapper">
+                      {{- 'icon-long-arrow-right.svg' | inline_asset_content -}}
+                    </span>
+                  </a>
+                {%- else -%}
+                  <button type="button" class="ecom-btn ecom-hide--mobile">
+                    <span>{{ blk_set.btn_label }}</span>
+                    <span class="svg-wrapper">
+                      {{- 'icon-long-arrow-right.svg' | inline_asset_content -}}
+                    </span>
+                  </button>
+                {%- endif -%}
+              {%- endif -%}
+              <div class="ecom-hide--desk empty-btn-space"></div>
+            </div>
+            <div
+              class="ecom-menu-drawer ecom-hide--desk"
+              id="ecom-menu-drawer"
+              role="region"
+              aria-labelledby="ecom-menu-btn"
+              hidden
+            >
+              <div class="ecom-menu-items">
+                {%- if blk_set.text != blank -%}
+                  <p class="ecom-text">{{ blk_set.text }}</p>
+                {%- endif -%}
+
+                {%- if blk_set.btn_label != blank -%}
+                  {%- if blk_set.btn_url != blank -%}
+                    <a href="{{ blk_set.btn_url }}" class="ecom-btn">
+                      <span>{{ blk_set.btn_label }}</span>
+                      <span class="svg-wrapper">
+                        {{- 'icon-long-arrow-right.svg' | inline_asset_content -}}
+                      </span>
+                    </a>
+                  {%- else -%}
+                    <button type="button" class="ecom-btn">
+                      <span>{{ blk_set.btn_label }}</span>
+                      <span class="svg-wrapper">
+                        {{- 'icon-long-arrow-right.svg' | inline_asset_content -}}
+                      </span>
+                    </button>
+                  {%- endif -%}
+                {%- endif -%}
               </div>
             </div>
-
-            {%- if blk_set.img != blank -%}
-              <div class="logo-box">
-                <div class="img-wrapper" style="width:{{ blk_set.img_width }}px">
-                  {{ blk_set.img | image_url: width: blk_set.img_width | image_tag: alt: blk_set.img.alt }}
-                </div>
-              </div>
-            {%- endif -%}
-            {%- if blk_set.text != blank -%}
-              <p class="ecom-text ecom-hide--mobile">{{ blk_set.text }}</p>
-            {%- endif -%}
-            {%- if blk_set.btn_label != blank -%}
-              {%- if blk_set.btn_url != blank -%}
-                <a href="{{ blk_set.btn_url }}" class="ecom-btn ecom-hide--mobile">
-                  <span>{{ blk_set.btn_label }}</span>
-                  <span class="svg-wrapper">
-                    {{- 'icon-long-arrow-right.svg' | inline_asset_content -}}
-                  </span>
-                </a>
-              {%- else -%}
-                <button type="button" class="ecom-btn ecom-hide--mobile">
-                  <span>{{ blk_set.btn_label }}</span>
-                  <span class="svg-wrapper">
-                    {{- 'icon-long-arrow-right.svg' | inline_asset_content -}}
-                  </span>
-                </button>
-              {%- endif -%}
-            {%- endif -%}
-            <div class="ecom-hide--desk empty-btn-space"></div>
           </div>
 
         {% else %}
